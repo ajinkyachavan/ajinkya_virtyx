@@ -8,13 +8,19 @@ public class FlattenArray {
 			
 		int[][][] arr = new int[][][] { {{1}, {2}, {3, 4, 5} }, {{4, 6, 7}}  };
 				
+		// I have extended the problem to consider the [1,2..] as [{1}, {2}]
+		// which can be generalized to the given problem.
+		// There are 3 solutions below: Intuitive approach(70715136 nanoseconds), 
+		// Recursive(1171914 ns) and String manipulation (3554277 ns)
+		
 		// intuitive 
 		// consider the array or array as 3 dimensional matrix.
-		// for each i,j -> if k==single?print:print as array
+		// for each i,j -> print all k's
 		int[] newArr = intuitiveApproach(arr);
 		print(newArr, "intuitive");
 		
 		// recursion 
+		// increment from k to i
 		List<Integer> newArrList = new ArrayList<>();
 		newArr = recursionApproach(arr, 0, 0, 0, newArrList);
 		print(newArr, "recursion");
